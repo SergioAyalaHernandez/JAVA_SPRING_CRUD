@@ -9,5 +9,4 @@ import java.util.Arrays;
 @Repository
 public interface IUserRepository extends JpaRepository<UserModel, Long> {
     //clase que permite query a db
-
 }

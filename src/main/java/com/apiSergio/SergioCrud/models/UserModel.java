@@ -1,7 +1,6 @@
 package com.apiSergio.SergioCrud.models;
 
-
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 //la entity y table, es para referencias la tabla en la db y sus columnas
 @Entity
@@ -11,14 +10,11 @@ public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column
-    private String firsName;
-
-    @Column
+    @Column(name = "firts_Name")
+    private String firtsName;
+    @Column(name = "last_Name")
     private String lastName;
-
-    @Column
+    @Column(name = "email")
     private String email;
 
     public Long getId() {
@@ -29,12 +25,12 @@ public class UserModel {
         this.id = id;
     }
 
-    public String getFirsName() {
-        return firsName;
+    public String getFirtsName() {
+        return firtsName;
     }
 
-    public void setFirsName(String firsName) {
-        this.firsName = firsName;
+    public void setFirtsName(String firtsName) {
+        this.firtsName = firtsName;
     }
 
     public String getLastName() {
