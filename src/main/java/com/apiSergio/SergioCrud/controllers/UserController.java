@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/v1/user")
@@ -17,7 +19,22 @@ public class UserController {
 
     @GetMapping("/")
     public ArrayList<UserModel> getUsers(){
-        return this.userService.getUsers();
+        return this.userService.getUsersSortedByName();
+    }
+
+    @GetMapping("/unique")
+    public List<UserModel> getUniqueUsers() {
+        return userService.getUsersUnique(); // Este sería un método para obtener usuarios únicos.
+    }
+
+    @GetMapping("/email/{email}")
+    public List<UserModel> getUsersByEmail(@PathVariable String email) {
+        return userService.getUsersByEmail(email); // Este sería un método para filtrar usuarios por email.
+    }
+
+    @GetMapping("/set")
+    public Set<UserModel> getUsersSet() {
+        return userService.getUsersSet(); // Este sería un método para obtener usuarios como un Set.
     }
 
     @PostMapping("/save")
